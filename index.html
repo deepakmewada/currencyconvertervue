@@ -1,12 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        * {border-radius: 0;}
+    body {background-color:#fff;font-family: 'Poppins', sans-serif;}
+    .loader {position: fixed;top: calc(50% - 128px);bottom: 0;left: 0;right: 0;text-align: center;z-index: 999;}
+    .main-cont {padding-top: 0px;}
+    .banner_sec img {width: 100%;object-fit: cover;height: 300px;}
+    </style>
+    <title>Vue Js Beginner</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Demo</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Send Money </a>
+                        <a class="nav-item nav-link" href="#">Travel Money</a>
+                        <a class="nav-item nav-link" href="#">Help</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        
+            <div class="main-cont">
+                <section>
+                    <div class="banner_sec">
+                        <figure>
+                            <img src="https://via.placeholder.com/1200x300/aaa/fff">
+                            <div class="widget">
+                                <ul>
+                                    <li class="wd40p mr10">
+                                        <div class="input_container">
+                                            <div class="leftInput">
+                                            <label>Sending Amount</label>
+                                            <input v-model="amount" type="text" class="form-control" placeholder="Amount" @change="convertCurrency()">
+                                            </div>
+                                            <div class="rightInput">
+					                        <select v-model="from" class="form-control" name="" id="" @change="convertCurrency()">
+                                                <option :value="currency.id" v-for="currency in formattedCurrencies">{{currency.id}}</option>
+                                            </select>
+                                            </div>
+                                            <div class="clear"></div>
+				                        </div>
+                                    </li>
+                                    <li class="wd40p mr10">
+                                        <div class="input_container">
+                                            <div class="leftInput">
+                                            <label>Recieving Amount</label>
+                                            <input disabled v-model="calculateResult" type="text" class="form-control" placeholder="Amount" @change="convertCurrency()">
+                                            </div>
+                                            <div class="rightInput">
+					                        <select v-model="to" class="form-control" name="" id="" @change="convertCurrency()">
+                            <option :value="currency.id" v-for="currency in formattedCurrencies">{{currency.id}}</option>
+                        </select>
+                                            </div>
+                                            <div class="clear"></div>
+				                        </div>
+                                    </li>
+                                    <li class="wd20p"><a href="#" class="btn btn-send">Send Now</a></li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+<div class="container"></div>
+
+                <!-- <span v-if="loading===true" class="loader"><img src="loader.gif" alt="Loading"></span>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="">From</label>
+                        <select v-model="from" class="form-control" name="" id="" @change="convertCurrency()">
+                            <option :value="currency.id" v-for="currency in formattedCurrencies">{{currency.currencyName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="">To</label>
+                        <select v-model="to" class="form-control" name="" id="" @change="convertCurrency()">
+                            <option :value="currency.id" v-for="currency in formattedCurrencies">{{currency.currencyName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <input v-model="amount" type="text" class="form-control my-5" placeholder="Amount" @change="convertCurrency()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h5 class="text-center mt-5">Exchange Rate : {{resultee}}</h5>
+                        <h1 class="text-center display-2 mt-5">{{calculateResult}}</h1>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
